@@ -1,0 +1,3713 @@
+/* 1. ПЕРЕМЕННЫЕ */
+
+:root {
+
+    --cream: #fffaf3;
+
+    --paper: #fffdf8;
+
+    --pink: #e9c8ca;
+
+    --pink-dark: #bd858c;
+
+    --blue: #cbdde0;
+
+    --blue-dark: #829fa5;
+
+    --yellow: #f1dfae;
+
+    --green: #a9b9a0;
+
+    --green-dark: #718873;
+
+    --brown: #6c5650;
+
+    --text: #66534e;
+
+    --muted: #a28e86;
+
+    --shadow: 0 15px 45px rgba(110, 83, 75, 0.12);
+
+}
+
+/* 2. ОСНОВА */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 85px;
+
+}
+
+body {
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    overflow-x: hidden;
+
+    line-height: 1.7;
+
+}
+
+button,
+
+a {
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+button {
+
+    font: inherit;
+
+}
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+/* Нежная бумажная текстура */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    opacity: 0.16;
+
+    background-image:
+
+        radial-gradient(#a78d79 0.5px, transparent 0.5px);
+
+    background-size: 7px 7px;
+
+    mix-blend-mode: multiply;
+
+}
+
+
+/* 3. ШАПКА */
+
+.header {
+
+    width: 100%;
+
+    height: 78px;
+
+    padding: 0 8%;
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+.logo {
+
+    font-size: 23px;
+
+    color: var(--brown);
+
+    letter-spacing: 1px;
+
+    font-style: italic;
+
+    transition: color 0.3s ease;
+
+}
+
+.logo:hover {
+
+    color: var(--pink-dark);
+
+}
+
+.music-button {
+
+    border: 1px solid rgba(189, 133, 140, 0.35);
+
+    background: rgba(255, 253, 248, 0.65);
+
+    color: var(--brown);
+
+    padding: 11px 20px;
+
+    border-radius: 40px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+
+    transition: all 0.3s ease;
+
+    backdrop-filter: blur(8px);
+
+}
+
+.music-button:hover {
+
+    background: #f1dede;
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow);
+
+}
+
+.music-button:active {
+
+    transform: scale(0.96);
+
+}
+
+/* 4. ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+
+    min-height: 760px;
+
+    height: 100vh;
+
+    max-height: 1050px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(
+
+            115deg,
+
+            #fff8f0 0%,
+
+            #f8eeea 48%,
+
+            #eaf1ee 100%
+
+        );
+
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 52%;
+
+    padding-left: 11%;
+
+    padding-top: 35px;
+
+    animation: fadeUp 1.2s ease both;
+
+}
+
+.subtitle {
+
+    color: var(--pink-dark);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    margin-bottom: 23px;
+
+}
+
+.hero h1 {
+
+    color: var(--brown);
+
+    font-size: clamp(65px, 8vw, 112px);
+
+    font-weight: normal;
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+
+}
+
+h1 em,
+
+h2 em,
+
+h3 em {
+
+    color: var(--pink-dark);
+
+    font-weight: normal;
+
+}
+
+.hero-description {
+
+    max-width: 430px;
+
+    margin-top: 32px;
+
+    margin-bottom: 35px;
+
+    color: #88756d;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+}
+
+.main-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 16px 27px;
+
+    background: #bd8e91;
+
+    color: white;
+
+    border: 1px solid #bd8e91;
+
+    border-radius: 3px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+
+        background 0.3s ease,
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease;
+
+}
+
+.main-button span {
+
+    font-size: 20px;
+
+}
+
+.main-button:hover {
+
+    background: #a97880;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 25px rgba(160, 110, 115, 0.22);
+
+}
+
+.main-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* 5. АКВАРЕЛЬНЫЕ ПЯТНА */
+
+.watercolor {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(38px);
+
+    opacity: 0.48;
+
+    pointer-events: none;
+
+}
+
+.watercolor-pink {
+
+    width: 300px;
+
+    height: 350px;
+
+    background: #edc8cb;
+
+    top: 5%;
+
+    left: 35%;
+
+    animation: watercolorFloat 12s infinite alternate;
+
+}
+
+.watercolor-blue {
+
+    width: 320px;
+
+    height: 290px;
+
+    background: #c5dce0;
+
+    bottom: 5%;
+
+    right: 5%;
+
+    animation: watercolorFloat 15s infinite alternate-reverse;
+
+}
+
+.watercolor-yellow {
+
+    width: 180px;
+
+    height: 200px;
+
+    background: #f1dfb3;
+
+    top: 15%;
+
+    right: 30%;
+
+    opacity: 0.3;
+
+}
+
+/* 6. СКАЗОЧНЫЙ ПЕЙЗАЖ */
+
+.fairyland {
+
+    position: absolute;
+
+    width: 55%;
+
+    height: 100%;
+
+    right: 0;
+
+    bottom: 0;
+
+    overflow: hidden;
+
+}
+
+.moon {
+
+    position: absolute;
+
+    top: 19%;
+
+    right: 27%;
+
+    width: 85px;
+
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: #f6e8bd;
+
+    box-shadow: 0 0 55px rgba(246, 232, 189, 0.7);
+
+    animation: moonGlow 5s infinite alternate;
+
+}
+
+.cloud {
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 35px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    filter: blur(2px);
+
+}
+
+.cloud::before,
+
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: inherit;
+
+}
+
+.cloud::before {
+
+    width: 65px;
+
+    height: 65px;
+
+    top: -28px;
+
+    left: 20px;
+
+}
+
+.cloud::after {
+
+    width: 48px;
+
+    height: 48px;
+
+    top: -17px;
+
+    right: 17px;
+
+}
+
+.cloud-one {
+
+    top: 28%;
+
+    left: 12%;
+
+    animation: cloudMove 20s infinite alternate ease-in-out;
+
+}
+
+.cloud-two {
+
+    top: 43%;
+
+    right: 10%;
+
+    transform: scale(0.7);
+
+    animation: cloudMove 17s infinite alternate-reverse ease-in-out;
+
+}
+
+.hill {
+
+    position: absolute;
+
+    width: 120%;
+
+    height: 260px;
+
+    bottom: -95px;
+
+    border-radius: 50% 50% 0 0;
+
+}
+
+.hill-one {
+
+    background: #c9d7bc;
+
+    left: -25%;
+
+    transform: rotate(-8deg);
+
+}
+
+.hill-two {
+
+    background: #b3c8ad;
+
+    right: -45%;
+
+    bottom: -125px;
+
+    transform: rotate(9deg);
+
+}
+
+.little-house {
+
+    position: absolute;
+
+    bottom: 22%;
+
+    left: 48%;
+
+    width: 150px;
+
+    z-index: 3;
+
+    animation: houseFloat 5s infinite ease-in-out;
+
+}
+
+.house-roof {
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 90px solid transparent;
+
+    border-right: 90px solid transparent;
+
+    border-bottom: 85px solid #bd8e91;
+
+    margin-left: -15px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.house-body {
+
+    width: 120px;
+
+    height: 105px;
+
+    background: #f5e5ce;
+
+    margin: -2px auto 0;
+
+    position: relative;
+
+    box-shadow: 5px 8px 15px rgba(90, 75, 65, 0.1);
+
+}
+
+.house-window {
+
+    width: 28px;
+
+    height: 35px;
+
+    background: #f5d88f;
+
+    border: 4px solid #fff7e9;
+
+    border-radius: 50% 50% 0 0;
+
+    position: absolute;
+
+    top: 22px;
+
+    left: 15px;
+
+    box-shadow: 0 0 15px #f5d88f;
+
+}
+
+.house-door {
+
+    width: 31px;
+
+    height: 57px;
+
+    position: absolute;
+
+    bottom: 0;
+
+    right: 17px;
+
+    background: #a87970;
+
+    border-radius: 15px 15px 0 0;
+
+}
+
+.tree {
+
+    position: absolute;
+
+    color: #f5d5d7;
+
+    font-size: 48px;
+
+    z-index: 4;
+
+    text-shadow: 0 5px 15px rgba(110, 83, 75, 0.1);
+
+    animation: treeSway 4s infinite alternate ease-in-out;
+
+}
+
+.tree-one {
+
+    left: 23%;
+
+    bottom: 24%;
+
+}
+
+.tree-two {
+
+    right: 13%;
+
+    bottom: 20%;
+
+    color: #f2e3b9;
+
+    font-size: 58px;
+
+    animation-delay: -2s;
+
+}
+
+.flying-bird {
+
+    position: absolute;
+
+    top: 32%;
+
+    left: 30%;
+
+    font-size: 35px;
+
+    color: #bd8e91;
+
+    animation: birdFly 8s infinite ease-in-out;
+
+}
+
+.star {
+
+    position: absolute;
+
+    color: #d8b979;
+
+    font-size: 25px;
+
+    animation: starTwinkle 3s infinite alternate;
+
+}
+
+.star-one {
+
+    top: 20%;
+
+    left: 15%;
+
+}
+
+.star-two {
+
+    top: 37%;
+
+    right: 20%;
+
+    animation-delay: 1s;
+
+}
+
+.star-three {
+
+    top: 13%;
+
+    right: 42%;
+
+    animation-delay: 1.5s;
+
+}
+
+.star-four {
+
+    top: 55%;
+
+    left: 12%;
+
+
+animation-delay: 0.5s;
+
+}
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    color: #a28e86;
+
+    font: 9px Arial, sans-serif;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+}
+
+.scroll-indicator span {
+
+    display: block;
+
+    font-size: 20px;
+
+    margin-top: 5px;
+
+    animation: arrowDown 1.5s infinite;
+
+}
+
+
+/* 7. ОБЩИЕ СЕКЦИИ */
+
+.section {
+
+    padding: 120px 8%;
+
+    position: relative;
+
+}
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 0 auto 65px;
+
+}
+
+.section-heading .subtitle {
+
+    margin-bottom: 17px;
+
+}
+
+.section-heading h2 {
+
+    color: var(--brown);
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: normal;
+
+    line-height: 1.2;
+
+}
+
+.section-heading > p:last-child {
+
+    color: var(--muted);
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+/* 8. КНИГА */
+
+.book-section {
+
+    background: #f9f0e9;
+
+    overflow: hidden;
+
+}
+
+.book-container {
+
+    position: relative;
+
+    width: min(850px, 100%);
+
+    min-height: 490px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.book-cover {
+
+    width: 360px;
+
+    min-height: 470px;
+
+    padding: 45px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: center;
+
+    color: #fffaf1;
+
+    background:
+
+        radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.15), transparent 55%),
+
+        linear-gradient(145deg, #bd9292, #a97e7c);
+
+    border: 8px double rgba(255, 248, 233, 0.5);
+
+    box-shadow: 18px 22px 45px rgba(100, 70, 65, 0.2);
+
+    transition: transform 0.8s ease, opacity 0.6s ease;
+
+    z-index: 2;
+
+}
+
+.book-decoration {
+
+    font-size: 25px;
+
+    letter-spacing: 12px;
+
+    color: #f3e3b9;
+
+}
+
+.book-cover h3 {
+
+    font-size: 34px;
+
+    line-height: 1.5;
+
+    font-weight: normal;
+
+}
+
+.book-cover h3 em {
+
+    color: #f7e5d6;
+
+}
+
+.book-moon {
+
+    font-size: 70px;
+
+    color: #f2e0b2;
+
+}
+
+.book-cover > p {
+
+    font: 9px Arial, sans-serif;
+
+    letter-spacing: 3px;
+
+    opacity: 0.8;
+
+}
+
+.book-button {
+
+    padding: 12px 25px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    letter-spacing: 1px;
+
+}
+
+.book-button:hover {
+
+    background: rgba(255,255,255,0.2);
+
+    transform: translateY(-3px);
+
+}
+
+.book-pages {
+
+    width: min(520px, 100%);
+
+    min-height: 470px;
+
+    padding: 65px 55px 40px;
+
+    position: relative;
+
+    background:
+
+        linear-gradient(90deg, rgba(180, 150, 125, 0.08), transparent 10%),
+
+        #fffdf6;
+
+    box-shadow: var(--shadow);
+
+    border: 1px solid #eadfce;
+
+    color: var(--brown);
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    animation: pageAppear 0.7s ease both;
+
+}
+
+/* Поддержка переключения книги через JS */
+
+.book-container.open .book-cover,
+
+.book-cover.open,
+
+.book-cover.hidden {
+
+    display: none;
+
+}
+
+.book-container.open .book-pages,
+
+.book-pages.active,
+
+.book-pages.open,
+
+.book-pages.show {
+
+    display: flex;
+
+}
+
+.book-pages h3 {
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    line-height: 1.35;
+
+    margin-bottom: 25px;
+
+    color: var(--brown);
+
+}
+
+.book-pages > p:not(.subtitle) {
+
+    font-size: 16px;
+
+    line-height: 2.1;
+
+    white-space: pre-line;
+
+    color: #88756d;
+
+}
+
+.book-pages .subtitle {
+
+    margin-bottom: 20px;
+
+}
+
+.close-book {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #a98c83;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+
+}
+
+.close-book:hover {
+
+    transform: rotate(90deg);
+
+}
+
+.page-navigation {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: auto;
+
+    padding-top: 35px;
+
+}
+
+.page-navigation button {
+
+    background: transparent;
+
+    border: 1px solid #dfc8bd;
+
+    color: var(--brown);
+
+    padding: 10px 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+.page-navigation button:hover:not(:disabled) {
+
+    background: #f4e5df;
+
+}
+
+.page-navigation button:disabled {
+
+    opacity: 0.35;
+
+    cursor: default;
+
+}
+
+#pageCounter {
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+}
+
+
+/* 9. ВОСПОМИНАНИЯ */
+
+.memories-section {
+
+    background: #fffaf3;
+
+}
+
+.memory-gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+}
+
+.memory-card {
+
+    background: #fffdf8;
+
+    padding: 13px 13px 25px;
+
+    box-shadow: 0 10px 35px rgba(110, 83, 75, 0.1);
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+}
+
+.memory-card:nth-child(1) {
+
+    transform: rotate(-2deg);
+
+}
+
+.memory-card:nth-child(2) {
+
+    transform: rotate(1.5deg) translateY(15px);
+
+}
+
+.memory-card:nth-child(3) {
+
+    transform: rotate(-1deg);
+
+}
+
+.memory-card:hover {
+
+    transform: translateY(-12px) rotate(0);
+
+    box-shadow: var(--shadow);
+
+}
+
+.memory-card img {
+
+    width: 100%;
+
+    height: 310px;
+
+    object-fit: cover;
+
+    background: #eee1d8;
+
+}
+
+.memory-card p {
+
+    padding: 20px 5px 0;
+
+    text-align: center;
+
+    color: #927a72;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+}
+
+/* 10. СЛАЙД-ШОУ */
+
+.slideshow-section {
+
+    background:
+
+        linear-gradient(140deg, #eef3ee, #f8f0e9);
+
+    overflow: hidden;
+
+}
+
+.slideshow {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+.slide-content {
+
+    flex: 1;
+
+    max-width: 600px;
+
+    text-align: center;
+
+    padding: 35px;
+
+    background: rgba(255, 253, 248, 0.7);
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    box-shadow: var(--shadow);
+
+}
+
+.slide-picture {
+
+    width: 100%;
+
+    height: 310px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        radial-gradient(circle at 50% 50%, #fff8e9, #e7d7d0);
+
+    font-size: 110px;
+
+    margin-bottom: 25px;
+
+    overflow: hidden;
+
+    animation: slideFade 0.6s ease;
+
+}
+
+.slide-content h3 {
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    color: var(--brown);
+
+}
+
+.slide-content p {
+
+    color: var(--muted);
+
+    margin-top: 10px;
+
+    font-size: 15px;
+
+}
+
+.slide-arrow {
+
+    width: 50px;
+
+    height: 50px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    border: 1px solid #c9b4a7;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #927a72;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+.slide-arrow:hover {
+
+    background: #bd9292;
+
+    color: white;
+
+    transform: scale(1.1);
+
+}
+
+.slide-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+.slide-dots button {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #d9c5bc;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+.slide-dots button.active,
+
+.slide-dots button.selected {
+
+    background: #bd8e91;
+
+    transform: scale(1.5);
+
+}
+
+
+/* 11. ФИНАЛ */
+
+.final-section {
+
+    min-height: 650px;
+
+    padding: 130px 20px 100px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+
+            130deg,
+
+            #f8e9e7,
+
+            #fff5e9 50%,
+
+            #e6eeea
+
+        );
+
+}
+
+.final-watercolor {
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: rgba(223, 181, 184, 0.3);
+
+    filter: blur(80px);
+
+    border-radius: 50%;
+
+    top: 5%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+}
+
+.final-section > *:not(.final-watercolor) {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.final-section h2 {
+
+    color: var(--brown);
+
+    font-size: clamp(48px, 7vw, 76px);
+
+    line-height: 1.15;
+
+    font-weight: normal;
+
+    margin-bottom: 30px;
+
+}
+
+.final-text {
+
+    max-width: 490px;
+
+    margin: 0 auto 35px;
+
+    color: #88756d;
+
+    font-size: 16px;
+
+    line-height: 2.1;
+
+    white-space: pre-line;
+
+}
+
+.secret-message {
+
+    margin-top: 25px;
+
+    font-size: 22px;
+
+    color: var(--pink-dark);
+
+    font-style: italic;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition: all 0.5s ease;
+
+    pointer-events: none;
+
+}
+
+.secret-message.show,
+
+.secret-message.active,
+
+.secret-message.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.final-decoration {
+
+    margin-top: 65px;
+
+    font-size: 24px;
+
+    letter-spacing: 10px;
+
+    color: #c29a85;
+
+    animation: starTwinkle 3s infinite alternate;
+
+}
+
+/* 12. ПОДВАЛ */
+
+footer {
+
+    padding: 25px;
+
+    background: #e9ded4;
+
+    color: #947d72;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* 13. АНИМАЦИИ */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes watercolorFloat {
+
+    from {
+
+        transform: translate(0, 0) scale(1);
+
+    }
+
+    to {
+
+        transform: translate(30px, -25px) scale(1.12);
+
+    }
+
+}
+
+@keyframes moonGlow {
+
+    from {
+
+        box-shadow: 0 0 30px rgba(246, 232, 189, 0.4);
+
+    }
+
+    to {
+
+        box-shadow: 0 0 75px rgba(246, 232, 189, 0.9);
+
+    }
+
+}
+
+@keyframes cloudMove {
+
+    from {
+
+        translate: -10px 0;
+
+    }
+
+    to {
+
+        translate: 30px 10px;
+
+    }
+
+}
+
+@keyframes houseFloat {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+}
+
+@keyframes treeSway {
+
+    from {
+
+        transform: rotate(-5deg);
+
+    }
+
+    to {
+
+        transform: rotate(5deg);
+
+    }
+
+}
+
+@keyframes birdFly {
+
+    0%, 100% {
+
+        transform: translate(0, 0) rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform: translate(55px, -35px) rotate(10deg);
+
+    }
+
+}
+
+@keyframes starTwinkle {
+
+    from {
+
+        opacity: 0.35;
+
+        transform: scale(0.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.2);
+
+    }
+
+}
+
+@keyframes arrowDown {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(8px);
+
+    }
+
+}
+
+@keyframes pageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+@keyframes slideFade {
+
+    from {
+
+        opacity: 0.3;
+
+        transform: scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+/* 14. ПЛАНШЕТЫ */
+
+@media(max-width: 900px) {
+
+    .hero-content {
+
+        padding-left: 7%;
+
+        width: 58%;
+
+    }
+
+    .fairyland {
+
+        width: 52%;
+
+    }
+
+    .little-house {
+
+        left: 40%;
+
+        transform: scale(0.8);
+
+        transform-origin: bottom center;
+
+    }
+
+    .memory-gallery {
+
+        gap: 20px;
+
+    }
+
+    .memory-card img {
+
+        height: 250px;
+
+    }
+
+    .section {
+
+        padding: 95px 6%;
+
+    }
+
+}
+
+
+/* 15. ТЕЛЕФОНЫ */
+
+@media (max-width: 600px) {
+
+    html {
+
+        scroll-padding-top: 65px;
+
+    }
+
+    .header {
+
+        height: 65px;
+
+        padding: 0 5%;
+
+    }
+
+    .logo {
+
+        font-size: 19px;
+
+    }
+
+    .music-button {
+
+        padding: 9px 13px;
+
+        font-size: 11px;
+
+    }
+
+    .hero {
+
+        min-height: 780px;
+
+        height: auto;
+
+        max-height: none;
+
+        align-items: flex-start;
+
+        padding-top: 145px;
+
+    }
+
+    .hero-content {
+
+        width: 100%;
+
+        padding: 0 8%;
+
+        text-align: center;
+
+    }
+
+    .hero h1 {
+
+        font-size: clamp(65px, 17vw, 85px);
+
+        letter-spacing: -3px;
+
+    }
+
+    .hero-description {
+
+        font-size: 14px;
+
+        margin: 25px auto;
+
+        max-width: 360px;
+
+    }
+
+    .subtitle {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+    .fairyland {
+
+        width: 100%;
+
+        height: 330px;
+
+        bottom: 15px;
+
+        opacity: 0.9;
+
+    }
+
+    .moon {
+
+        width: 55px;
+
+        height: 55px;
+
+        top: 10%;
+
+        right: 25%;
+
+    }
+
+    .little-house {
+
+        transform: scale(0.7);
+
+        transform-origin: bottom center;
+
+        left: 40%;
+
+        bottom: 20%;
+
+    }
+
+    .tree-one {
+
+        bottom: 21%;
+
+        left: 15%;
+
+    }
+
+    .tree-two {
+
+        bottom: 18%;
+
+        right: 10%;
+
+    }
+
+    .scroll-indicator {
+
+        bottom: 8px;
+
+        font-size: 8px;
+
+    }
+
+    .section {
+
+        padding: 85px 6%;
+
+    }
+
+    .section-heading {
+
+        margin-bottom: 45px;
+
+    }
+
+    .section-heading h2 {
+
+        font-size: 38px;
+
+    }
+
+    .section-heading > p:last-child {
+
+        font-size: 13px;
+
+    }
+
+    /* Книга */
+
+    .book-container {
+
+        min-height: 440px;
+
+    }
+
+    .book-cover {
+
+        width: min(320px, 100%);
+
+        min-height: 420px;
+
+        padding: 35px 20px;
+
+    }
+
+    .book-cover h3 {
+
+        font-size: 29px;
+
+    }
+
+    .book-pages {
+
+        min-height: 420px;
+
+        padding: 55px 25px 30px;
+
+    }
+
+    .book-pages h3 {
+
+        font-size: 26px;
+
+    }
+
+    .book-pages > p:not(.subtitle) {
+
+        font-size: 14px;
+
+    }
+
+    .page-navigation button {
+
+        padding: 9px 10px;
+
+        font-size: 12px;
+
+    }
+
+    /* Фотографии */
+
+    .memory-gallery {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        max-width: 380px;
+
+    }
+
+    .memory-card:nth-child(n) {
+
+        transform: rotate(0);
+
+    }
+
+    .memory-card img {
+
+        height: 300px;
+
+    }
+
+    /* Слайд-шоу */
+
+    .slideshow {
+
+        gap: 8px;
+
+    }
+
+    .slide-content {
+
+        padding: 15px;
+
+    }
+
+    .slide-picture {
+
+        height: 220px;
+
+        font-size: 80px;
+
+    }
+
+    .slide-content h3 {
+
+        font-size: 24px;
+
+    }
+
+    .slide-content p {
+
+        font-size: 13px;
+
+    }
+
+    .slide-arrow {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 23px;
+
+    }
+
+    /* Финал */
+
+    .final-section {
+
+        padding: 100px 7% 70px;
+
+        min-height: 600px;
+
+    }
+
+    .final-section h2 {
+
+        font-size: 48px;
+
+    }
+
+    .final-text {
+
+        font-size: 14px;
+
+    }
+
+    .final-decoration {
+
+        font-size: 18px;
+
+        letter-spacing: 5px;
+
+    }
+
+    footer {
+
+        font-size: 11px;
+
+    }
+
+}
+
+/* 16. МАЛЕНЬКИЕ ЭКРАНЫ */
+
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+
+        font-size: 60px;
+
+    }
+
+    .music-button {
+
+        padding: 8px 9px;
+
+    }
+
+    .music-button span {
+
+        font-size: 10px;
+
+    }
+
+    .book-pages {
+
+        padding: 50px 18px 25px;
+
+    }
+
+    .page-navigation {
+
+        gap: 5px;
+
+    }
+
+    .page-navigation button {
+
+        font-size: 10px;
+
+    }
+
+    .slide-arrow {
+
+        width: 30px;
+
+        height: 30px;
+
+    }
+
+}
+
+/* 17. ДОСТУПНОСТЬ */
+
+button:focus-visible,
+
+a:focus-visible {
+
+    outline: 2px solid var(--pink-dark);
+
+    outline-offset: 4px;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+
+    *::before,
+
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
+/* Картинки слайд-шоу */
+
+.slide-picture {
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: slideFade 0.6s ease;
+}
+
+.slide-picture img.image-error {
+    object-fit: contain;
+    padding: 30px;
+    background: #f4e5df;
+}
+
+/* Появление секций при прокрутке */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Заглушка отсутствующей фотографии */
+
+.photo-placeholder {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1e5df;
+    color: #bd9292;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* =====================================
+   АНИМАЦИЯ КАРТОЧЕК ВОСПОМИНАНИЙ
+===================================== */
+
+.memory-card.reveal.visible {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        opacity 0.8s ease;
+}
+
+.memory-card:nth-child(1).reveal.visible {
+    transform: rotate(-2deg);
+}
+
+.memory-card:nth-child(2).reveal.visible {
+    transform: rotate(1.5deg) translateY(15px);
+}
+
+.memory-card:nth-child(3).reveal.visible {
+    transform: rotate(-1deg);
+}
+
+.memory-card:nth-child(1).reveal.visible:hover {
+    transform: translate(12px, -12px) rotate(1deg);
+}
+
+.memory-card:nth-child(2).reveal.visible:hover {
+    transform: translate(12px, -12px) rotate(-1deg);
+}
+
+.memory-card:nth-child(3).reveal.visible:hover {
+    transform: translate(12px, -12px) rotate(1deg);
+}
+
+/* На телефоне сохраняем аккуратный вид */
+@media(max-width: 600px) {
+    .memory-card:nth-child(n).reveal.visible,
+    .memory-card:nth-child(n).reveal.visible:hover {
+        transform: none;
+    }
+}
+
+/* =====================================
+   СЕКРЕТНОЕ ПИСЬМО
+===================================== */
+
+.secret-message {
+    max-width: 580px;
+    margin: 35px auto 0;
+    padding: 40px 45px;
+    background: #fffdf6;
+    border: 1px solid #eadfce;
+    box-shadow: 0 15px 45px rgba(110, 83, 75, 0.12);
+    color: var(--brown);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25px);
+    pointer-events: none;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+}
+
+.secret-message.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.secret-message h3 {
+    font-size: 32px;
+    font-weight: normal;
+    margin: 15px 0 20px;
+}
+
+.secret-message > p:not(.subtitle) {
+    white-space: pre-line;
+    font-size: 15px;
+    line-height: 2.1;
+    color: #88756d;
+}
+
+.letter-envelope {
+    font-size: 55px;
+    color: var(--pink-dark);
+    margin-bottom: 15px;
+}
+
+.letter-decoration {
+    color: #c29a85;
+    font-size: 25px;
+    margin-top: 25px;
+    letter-spacing: 10px;
+}
+
+@media(max-width: 600px) {
+    .secret-message {
+        padding: 30px 22px;
+    }
+
+    .secret-message h3 {
+        font-size: 26px;
+    }
+}
+/* =========================================
+   LITTLE WONDER: НОВЫЕ ГЛАВЫ
+========================================= */
+
+/* 1. ХРОНИКА */
+
+.timeline-section {
+    background: #f8f1e9;
+}
+
+.timeline-list {
+    max-width: 760px;
+    margin: 0 auto 65px;
+    position: relative;
+}
+
+.timeline-list::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 25px;
+    width: 2px;
+    background: #dfc4bd;
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 25px 30px 25px 75px;
+    background: #fffdf8;
+    border: 1px solid #eee2d7;
+    box-shadow: 0 8px 25px rgba(110, 83, 75, 0.07);
+    animation: fadeUp 0.6s ease both;
+}
+
+.timeline-entry::before {
+    content: "✦";
+    position: absolute;
+    left: 15px;
+    top: 28px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #bd9292;
+    color: white;
+    text-align: center;
+    line-height: 22px;
+    z-index: 2;
+}
+
+.timeline-date {
+    color: var(--pink-dark);
+    font: 11px Arial, sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.timeline-entry h3 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.timeline-entry p {
+    color: #88756d;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.timeline-entry img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.timeline-empty {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--muted);
+    background: #fffdf8;
+    border: 1px dashed #d9c1b7;
+}
+
+.memory-editor {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fffdf8;
+    border: 1px solid #eadfce;
+    box-shadow: var(--shadow);
+}
+
+.memory-editor h3 {
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+#memoryForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#memoryForm label {
+    color: #927a72;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+#memoryForm input,
+#memoryForm textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #e5d5ca;
+    background: #fffaf4;
+    color: var(--brown);
+    font: inherit;
+    outline: none;
+}
+
+#memoryForm input:focus,
+#memoryForm textarea:focus {
+    border-color: var(--pink-dark);
+}
+
+#memoryForm textarea {
+    resize: vertical;
+}
+
+#memoryForm button {
+    align-self: flex-start;
+    margin-top: 15px;
+}
+
+.editor-note {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+/* =====================================
+   LITTLE WONDER: КАРТА ПРИКЛЮЧЕНИЙ
+===================================== */
+
+.adventure-section {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    padding: 85px 20px;
+    overflow: visible;
+}
+
+.adventure-map {
+    position: relative;
+    width: min(900px, 100%);
+    height: 470px;
+    margin: 45px auto;
+    overflow: hidden;
+    border: 8px solid rgba(255,255,255,0.65);
+    border-radius: 35px;
+    background:
+        radial-gradient(ellipse at 20% 25%, #d7e5c9 0 13%, transparent 14%),
+        radial-gradient(ellipse at 75% 70%, #d8e8d0 0 17%, transparent 18%),
+        radial-gradient(ellipse at 45% 50%, #f4e5c8 0 28%, transparent 29%),
+        linear-gradient(135deg, #e8edda, #f3e8d5 55%, #dce9d5);
+    box-shadow: 0 15px 40px rgba(88, 75, 59, 0.13);
+}
+
+.adventure-map::before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 2px;
+    left: 12%;
+    top: 50%;
+    border-top: 3px dashed rgba(156, 130, 103, 0.45);
+    transform: rotate(-17deg);
+}
+
+.adventure-map::after {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 2px;
+    left: 18%;
+    top: 55%;
+    border-top: 3px dashed rgba(156, 130, 103, 0.35);
+    transform: rotate(25deg);
+}
+
+.map-place {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 145px;
+    min-height: 105px;
+    padding: 12px;
+    border: 2px solid rgba(255,255,255,0.9);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.83);
+    color: #705b4c;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(80, 65, 50, 0.12);
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.map-place:hover {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 12px 25px rgba(80, 65, 50, 0.2);
+}
+
+.map-place.selected {
+    background: #fff5df;
+    border-color: #c69d70;
+    box-shadow: 0 0 0 5px rgba(198,157,112,0.18);
+    transform: scale(1.06);
+}
+
+.map-place-icon {
+    font-size: 32px;
+}
+
+.place-one {
+    left: 10%;
+    top: 12%;
+}
+
+.place-two {
+    right: 10%;
+    top: 12%;
+}
+
+.place-three {
+    left: 12%;
+    bottom: 10%;
+}
+
+.place-four {
+    right: 10%;
+    bottom: 10%;
+}
+
+.map-decoration {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .65;
+}
+
+.map-cloud {
+    top: 43%;
+    left: 45%;
+    font-size: 45px;
+}
+
+.map-sun {
+    top: 5%;
+    left: 48%;
+    color: #d9ad58;
+    font-size: 34px;
+}
+
+.map-flower {
+    bottom: 43%;
+    right: 35%;
+    color: #c68d9b;
+    font-size: 30px;
+}
+
+/* ПАНЕЛЬ ИСТОРИИ */
+
+.adventure-detail {
+    width: min(900px, 100%);
+    box-sizing: border-box;
+    margin: 35px auto;
+    padding: 30px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.78);
+    color: #705b4c;
+    box-shadow: 0 12px 35px rgba(88, 75, 59, 0.09);
+}
+
+.adventure-welcome {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.adventure-welcome > span {
+    color: #c49b61;
+    font-size: 42px;
+}
+
+.adventure-welcome h3,
+.adventure-story-text h3,
+.adventure-memory h3 {
+    color: #705b4c;
+    font-family: Georgia, serif;
+}
+
+.adventure-welcome p,
+.adventure-story-text > p:last-child,
+.adventure-memory > p:not(.subtitle) {
+    color: #927e70;
+    line-height: 1.7;
+}
+
+.adventure-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 30px;
+}
+
+.adventure-media {
+    min-height: 260px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #e8e3d4, #dce8df);
+}
+
+.adventure-media img,
+.adventure-media video,
+.adventure-media iframe {
+    display: block;
+    width: 100%;
+    min-height: 260px;
+    max-height: 420px;
+    object-fit: cover;
+    border: 0;
+}
+
+.adventure-placeholder {
+    font-size: 75px;
+    opacity: .7;
+}
+
+.adventure-story-text h3 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.adventure-story-text > p
+
+
+t-child {
+    font-size: 15px;
+}
+
+/* ЛИЧНЫЕ ВОСПОМИНАНИЯ */
+
+.adventure-memory {
+    margin-top: 35px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(130, 100, 80, 0.15);
+}
+
+#adventureNoteForm {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin: 20px 0;
+}
+
+#adventureNote {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 105px;
+    padding: 15px;
+    border: 1px solid #e1d3c5;
+    border-radius: 15px;
+    background: #fffdf9;
+    color: #705b4c;
+    font: inherit;
+    resize: vertical;
+}
+
+#adventureNote:focus,
+#adventureVideo:focus {
+    outline: none;
+    border-color: #c69d70;
+    box-shadow: 0 0 0 3px rgba(198,157,112,.13);
+}
+
+.adventure-notes {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.adventure-note-card {
+    padding: 17px;
+    border-radius: 15px;
+    background: #f7f0e8;
+    color: #705b4c;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.adventure-note-card small {
+    display: block;
+    margin-top: 8px;
+    color: #a28c7d;
+}
+
+.adventure-empty {
+    color: #a28c7d;
+    font-style: italic;
+}
+
+/* ЗАГРУЗКА ФОТО И ВИДЕО */
+
+.adventure-add-media {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 22px;
+    border-radius: 18px;
+    background: #f4eee7;
+}
+
+.adventure-add-media h4 {
+    margin: 0 0 5px;
+    color: #705b4c;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.adventure-add-media label {
+    color: #806b5c;
+    font-size: 13px;
+}
+
+.adventure-add-media input[type="file"],
+.adventure-add-media input[type="url"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e1d3c5;
+    border-radius: 12px;
+    background: #fffdf9;
+    color: #705b4c;
+}
+
+.adventure-hint {
+    margin: 0;
+    color: #9a887a;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media(max-width: 650px) {
+    .adventure-section {
+        padding: 55px 12px;
+    }
+
+    .adventure-map {
+        height: 440px;
+        border-width: 5px;
+        border-radius: 25px;
+    }
+
+    .map-place {
+        width: 125px;
+        min-height: 95px;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .map-place-icon {
+        font-size: 27px;
+    }
+
+    .place-one {
+        left: 3%;
+        top: 9%;
+    }
+
+    .place-two {
+        right: 3%;
+        top: 9%;
+    }
+
+    .place-three {
+        left: 3%;
+        bottom: 8%;
+    }
+
+    .place-four {
+        right: 3%;
+        bottom: 8%;
+    }
+
+    .adventure-detail {
+        padding: 20px;
+    }
+
+    .adventure-story {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .adventure-media,
+    .adventure-media img,
+    .adventure-media video,
+    .adventure-media iframe {
+        min-height: 210px;
+    }
+}
+/* 3. ПИСЬМА */
+
+.letters-section {
+    background: #f8f0e9;
+}
+
+.letters-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1050px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.letter-card {
+    padding: 35px 25px;
+    background: #fffdf6;
+    border: 1px solid #eadfce;
+    box-shadow: 0 10px 30px rgba(110, 83, 75, 0.08);
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.letter-card:hover {
+    transform: translateY(-8px);
+}
+
+.letter-icon {
+    font-size: 48px;
+    color: var(--pink-dark);
+    margin-bottom: 20px;
+}
+
+.letter-card h3 {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 12px 0;
+}
+
+.letter-card > p:not(.subtitle) {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.letter-button {
+    padding: 11px 20px;
+    border: 1px solid #d8b9b3;
+    background: transparent;
+    color: var(--brown);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.letter-button:hover {
+    background: #f3e3df;
+}
+
+.letter-content {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #faf3e8;
+    text-align: left;
+    animation: fadeUp 0.5s ease;
+}
+
+.letter-content.open {
+    display: block;
+}
+
+.letter-content p {
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 2;
+    color: #88756d;
+}
+
+/* 4. СОЗВЕЗДИЕ МЕЧТАНИЙ */
+
+.dreams-section {
+    background:
+        linear-gradient(145deg, #e8eeee, #f4e9e5 55%, #f6efdf);
+    overflow: hidden;
+}
+
+.dreams-sky {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 55px 35px;
+    position: relative;
+    background: rgba(76, 89, 106, 0.88);
+    border-radius: 48% 52% 45% 55% / 8% 8% 8% 8%;
+    box-shadow: 0 20px 50px rgba(73, 79, 89, 0.18);
+    overflow: hidden;
+}
+
+.dream-star {
+    position: absolute;
+    color: #f5dfaa;
+    font-size: 24px;
+    animation: starTwinkle 2s infinite alternate;
+}
+
+.dream-star:nth-child(1) {
+    top: 10%;
+    left: 12%;
+}
+
+.dream-star:nth-child(2) {
+    top: 25%;
+    right: 10%;
+}
+
+.dream-star:nth-child(3) {
+    bottom: 15%;
+    left: 8%;
+}
+
+.dream-star:nth-child(4) {
+    bottom: 18%;
+    right: 13%;
+}
+
+.dream-star:nth-child(5) {
+    top: 8%;
+    left: 50%;
+}
+
+.dreams-list {
+    position: relative;
+    z-index: 2;
+    max-width: 510px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.dream-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 18px;
+    color: #fffaf3;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dream-item:hover {
+    background: rgba(255, 255, 255, 0.17);
+}
+
+.dream-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: #e9c8a0;
+    cursor: pointer;
+}
+
+.dream-symbol {
+    color: #f5dfaa;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.dream-item:has(input:checked) .dream-symbol {
+    transform: rotate(45deg) scale(1.3);
+}
+
+.dream-item:has(input:checked) > span:last-child {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.dreams-footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #f3e4c7;
+    margin-top: 35px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ НОВЫХ СЕКЦИЙ */
+
+@media(max-width: 700px) {
+
+    .memory-editor {
+        padding: 25px 20px;
+    }
+
+    .timeline-entry {
+        padding: 22px 18px 22px 58px;
+    }
+
+    .timeline-list::before {
+        left: 18px;
+    }
+
+    .timeline-entry::before {
+        left: 8px;
+    }
+
+    .timeline-entry h3 {
+        font-size: 21px;
+    }
+
+    .adventure-map {
+        height: 380px;
+        border-radius: 35px;
+    }
+
+    .map-place span {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+    }
+
+    .map-place small {
+        font-size: 10px;
+    }
+
+    .place-one {
+        left: 5%;
+        top: 15%;
+    }
+
+    .place-two {
+        right: 5%;
+        top: 13%;
+    }
+
+    .place-three {
+        left: 8%;
+        bottom: 12%;
+    }
+
+    .place-four {
+        right: 5%;
+        bottom: 12%;
+    }
+
+    .letters-gallery {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .dreams-sky {
+        padding: 45px 18px;
+        border-radius: 35px;
+    }
+
+    .dream-item {
+        gap: 10px;
+        padding: 13px 10px;
+        font-size: 13px;
+    }
+}
+.chapter-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.chapter-nav a {
+    color: var(--brown);
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.chapter-nav a:hover {
+    color: var(--pink-dark);
+}
+
+@media(max-width: 900px) {
+    .chapter-nav {
+        display: none;
+    }
+}
+
+/* ИСПРАВЛЕНИЕ ПОЗИЦИЙ КАРТЫ */
+.adventure-map {
+    overflow: visible;
+    border-radius: 35px;
+}
+
+.map-place {
+    z-index: 5;
+}
+
+.place-one {
+    left: 12%;
+    top: 17%;
+}
+
+.place-two {
+    right: 12%;
+    top: 17%;
+}
+
+.place-three {
+    left: 17%;
+    bottom: 15%;
+}
+
+.place-four {
+    right: 12%;
+    bottom: 15%;
+}
+
+@media(max-width: 700px) {
+    .adventure-map {
+        height: 420px;
+        overflow: hidden;
+        border-radius: 30px;
+    }
+
+    .place-one {
+        left: 4%;
+        top: 13%;
+    }
+
+    .place-two {
+        right: 4%;
+        top: 13%;
+    }
+
+    .place-three {
+        left: 4%;
+        bottom: 12%;
+    }
+
+    .place-four {
+        right: 4%;
+        bottom: 12%;
+    }
+}
+
+/* ОТОБРАЖЕНИЕ ОПИСАНИЯ ЛОКАЦИИ */
+.adventure-detail {
+    position: relative;
+    z-index: 10;
+    display: block;
+    min-height: 175px;
+    opacity: 1;
+    visibility: visible;
+    color: var(--brown);
+    background: #f8f0e9;
+}
+
+.adventure-detail h3 {
+    display: block;
+    color: var(--brown);
+}
+
+.adventure-detail p {
+    display: block;
+    color: #88756d;
+}
+.map-place.selected span {
+    outline: 3px solid #d5aaa1;
+    transform: scale(1.08);
+}
+
+
+.dreams-section {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    clear: both;
+    margin-bottom: 0;
+}
+
+.final-section {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+    clear: both;
+    margin-top: 0;
+}
+
+.secret-message {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 35px auto 0;
+}
+
+/* ДЕКОРАЦИИ ФИНАЛЬНОЙ СЕКЦИИ */
+.final-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.final-section .floating-star,
+.final-section .floating-heart {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.final-section > *:not(.floating-star):not(.floating-heart) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================
+   СОЗВЕЗДИЕ МЕЧТАНИЙ
+===================================== */
+
+.dreams-section {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    padding: 90px 20px;
+    overflow: hidden;
+}
+
+.dreams-sky {
+    max-width: 850px;
+    margin: 45px auto;
+    padding: 35px;
+    border-radius: 30px;
+    background: rgba(48, 58, 83, 0.92);
+    color: #fff5dc;
+    box-shadow: 0 15px 40px rgba(38, 39, 61, 0.18);
+}
+
+.dreams-counter {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f8dfaa;
+}
+
+.dreams-counter span:first-child {
+    display: block;
+    font-size: 38px;
+    font-family: Georgia, serif;
+}
+
+.dreams-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.dream-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.07);
+    transition: 0.3s ease;
+}
+
+.dream-item.completed {
+    border-color: #f5d78e;
+    background: rgba(245, 215, 142, 0.15);
+    box-shadow: 0 0 22px rgba(255, 220, 140, 0.13);
+}
+
+/* =====================================
+   СОЗВЕЗДИЕ МЕЧТАНИЙ
+===================================== */
+
+.dreams-section {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    padding: 90px 20px;
+    overflow: hidden;
+}
+
+.dreams-sky {
+    max-width: 850px;
+    margin: 45px auto;
+    padding: 35px;
+    border-radius: 30px;
+    background: rgba(48, 58, 83, 0.92);
+    color: #fff5dc;
+    box-shadow: 0 15px 40px rgba(38, 39, 61, 0.18);
+}
+
+.dreams-counter {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f8dfaa;
+}
+
+.dreams-counter span:first-child {
+    display: block;
+    font-size: 38px;
+    font-family: Georgia, serif;
+}
+
+.dreams-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.dream-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.07);
+    transition: 0.3s ease;
+}
+
+.dream-item.completed {
+    border-color: #f5d78e;
+    background: rgba(245, 215, 142, 0.15);
+    box-shadow: 0 0 22px rgba(255, 220, 140, 0.13);
+}
+
+.dream-star {
+    flex-shrink: 0;
+    font-size: 27px;
+    color: #8790a8;
+    transition: 0.4s ease;
+}
+
+.dream-item.completed .dream-star {
+    color: #ffe49a;
+    text-shadow:
+        0 0 7px #ffe49a,
+        0 0 18px #ffd36e,
+        0 0 30px #ffca55;
+    transform: scale(1.2);
+}
+
+.dream-item h4 {
+    margin: 0 0 7px;
+    color: #fff0cb;
+    font-size: 17px;
+}
+
+.dream-item p {
+    margin: 0;
+    color: #d7d5df;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.dream-check {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    color: #f5dfb3;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dream-check input {
+    accent-color: #f5d78e;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.dream-editor {
+    max-width: 650px;
+    margin: 50px auto 20px;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.65);
+    text-align: center;
+}
+
+.dream-editor h3 {
+    color: var(--brown);
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.dream-editor p {
+    color: var(--brown);
+    line-height: 1.6;
+}
+
+#dreamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+#dreamForm input,
+#dreamForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 17px;
+    border: 1px solid rgba(130, 100, 90, 0.25);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--brown);
+    font: inherit;
+    outline: none;
+}
+
+#dreamForm textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#dreamForm input:focus,
+#dreamForm textarea:focus {
+    border-color: #c99a91;
+    box-shadow: 0 0 0 3px rgba(201, 154, 145, 0.15);
+}
+
+.dreams-footer {
+    text-align: center;
+    color: var(--brown);
+    font-family: Georgia, serif;
+    font-style: italic;
+    margin-top: 35px;
+}
+
+@media(max-width: 600px) {
+    .dreams-list {
+        grid-template-columns: 1fr;
+    }
+
+    .dreams-sky,
+    .dream-editor {
+        padding: 22px;
+    }
+
+    .dreams-section {
+        padding: 60px 15px;
+    }
+}
+
+
+.dream-star {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    min-width: 35px;
+    font-size: 29px;
+    color: #8790a8;
+    transition: color 0.4s ease,
+                text-shadow 0.4s ease,
+                transform 0.4s ease;
+}
+
+.dream-item.completed .dream-star {
+    color: #ffe49a;
+    text-shadow:
+        0 0 7px #ffe49a,
+        0 0 18px #ffd36e,
+        0 0 30px #ffca55;
+    transform: scale(1.2);
+    animation: dreamGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes dreamGlow {
+    from {
+        filter: brightness(1);
+        transform: scale(1.1);
+    }
+
+    to {
+        filter: brightness(1.6);
+        transform: scale(1.3);
+    }
+}
+
+
+
+.dream-item h4 {
+    margin: 0 0 7px;
+    color: #fff0cb;
+    font-size: 17px;
+}
+
+.dream-item p {
+    margin: 0;
+    color: #d7d5df;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.dream-check {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    color: #f5dfb3;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dream-check input {
+    accent-color: #f5d78e;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.dream-editor {
+    max-width: 650px;
+    margin: 50px auto 20px;
+    padding: 35px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.65);
+    text-align: center;
+}
+
+.dream-editor h3 {
+    color: var(--brown);
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.dream-editor p {
+    color: var(--brown);
+    line-height: 1.6;
+}
+
+#dreamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+#dreamForm input,
+#dreamForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 17px;
+    border: 1px solid rgba(130, 100, 90, 0.25);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--brown);
+    font: inherit;
+    outline: none;
+}
+
+#dreamForm textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#dreamForm input:focus,
+#dreamForm textarea:focus {
+    border-color: #c99a91;
+    box-shadow: 0 0 0 3px rgba(201, 154, 145, 0.15);
+}
+
+.dreams-footer {
+    text-align: center;
+    color: var(--brown);
+    font-family: Georgia, serif;
+    font-style: italic;
+    margin-top: 35px;
+}
+
+@media(max-width: 600px) {
+    .dreams-list {
+        grid-template-columns: 1fr;
+    }
+
+    .dreams-sky,
+    .dream-editor {
+        padding: 22px;
+    }
+
+    .dreams-section {
+        padding: 60px 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
